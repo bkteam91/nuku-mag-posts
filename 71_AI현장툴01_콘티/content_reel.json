@@ -1,0 +1,120 @@
+{
+ "theme": "night",
+ "issue": {
+  "kicker": "AI 현장툴 #01",
+  "handle": "@nuku.mag",
+  "caption": "✏️ 콘티 그리느라 밤새지 마요. 헌팅 사진 한 장이면 6컷 나와요\n\n댓글로 [콘티] 남기면 그대로 복사해서 쓰는 프롬프트 DM으로 보내드려요\n\n#콘티 #스토리보드 #영상제작 #연출부 #AI툴 #제미나이 #누쿠",
+  "music_hint": "기본 배경음악(_bgm.mp3) 자동 임베드"
+ },
+ "slides": [
+  {
+   "type": "hook",
+   "head": [
+    "콘티 그리기 싫은 사람",
+    "<em>사진 한 장이면 끝</em>"
+   ],
+   "sub": "헌팅 사진으로 6컷 콘티 뽑는 법",
+   "img": "../_커버이미지/아트/콘티_아이돌화보.png",
+   "imgstyle": "full",
+   "imgpos": "center 20%",
+   "fitmax": 96,
+   "kickcat": "No.4.png",
+   "hookblue": true,
+   "script": "on set with nuku"
+  },
+  {
+   "type": "statement",
+   "toplabel": "STEP 1 · 이 사진 한 장으로",
+   "head": [
+    "헌팅 때 폰으로 찍은",
+    "<u>장소 사진</u>을 올려요"
+   ],
+   "sub": "대충 찍은 사진이면 충분해요.<br>구도랑 소품을 AI가 읽어요.",
+   "img": "_art/장소사진_빨래방.png",
+   "imgpos": "center 40%",
+   "cat": "No.9.png",
+   "catpos": "right:96px;bottom:190px;width:150px",
+   "catol": true
+  },
+  {
+   "type": "show",
+   "toplabel": "STEP 2 · 30초 뒤",
+   "label": "제미나이 · 무료 계정으로 만든 실제 결과",
+   "head": [
+    "6컷 콘티가 <em>이렇게</em> 나와요"
+   ],
+   "img": "_art/콘티_빨래방_6컷.png",
+   "meta": [
+    [
+     "걸린 시간",
+     "요청 한 번, 30초 안팎"
+    ],
+    [
+     "살아난 것",
+     "세탁기·자판기·창문 위치 그대로"
+    ]
+   ],
+   "cat": "No.7.png",
+   "catpos": "right:50px;bottom:180px;width:250px",
+   "catol": true
+  },
+  {
+   "type": "steps",
+   "toplabel": "잘 나오게 하는 3가지",
+   "head": [
+    "부탁할 때",
+    "<em>이것만 넣으세요</em>"
+   ],
+   "steps": [
+    {
+     "h": "컷 수와 배열",
+     "d": "'6컷, 가로 2칸 × 세로 3줄'처럼<br>숫자로 정해 주세요"
+    },
+    {
+     "h": "그림 느낌",
+     "d": "'흑백 연필 스케치'라고 하면<br>콘티다운 그림이 나와요"
+    },
+    {
+     "h": "라벨은 영어로 짧게",
+     "d": "그림 속 한글은 깨지기 쉬워요<br>'1 WS, 2 MS'처럼 영어로"
+    }
+   ],
+   "cat": "No.6.png",
+   "catpos": "right:90px;top:640px;width:210px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "주의할 점",
+   "head": [
+    "콘티는 <u>초안</u>이에요",
+    "감독과 맞춰보는 출발점"
+   ],
+   "sub": "AI가 그린 컷을 그대로 찍기보다, 회의 때 '이런 느낌?' 하고 보여주는 용도로 쓰세요. 사람 얼굴이 나온 사진은 올리기 전에 한 번 더 확인하세요.",
+   "cat": "No.3.png",
+   "catpos": "right:100px;bottom:320px;width:190px",
+   "catol": true
+  },
+  {
+   "type": "cta",
+   "head": [
+    "콘티 프롬프트,",
+    "<em>DM으로 드려요</em>"
+   ],
+   "sub": "댓글에 <b>콘티</b> 남기면 그대로 복사해서 쓰는 프롬프트와 고쳐 쓰는 법을 보내드려요.",
+   "ctaline": "콘티 때문에 밤새는 연출부한테 보내주세요",
+   "disc": "함께 일할 연출부·촬영부는 nuku.im에서 찾을 수 있어요.",
+   "cat": "Group 427319269.png",
+   "catpos": "left:330px;top:0;width:420px",
+   "catol": true
+  }
+ ],
+ "durations": {
+  "hook": 3.2,
+  "statement": 4.4,
+  "show": 5.2,
+  "steps": 5.6,
+  "cta": 4.8,
+  "xfade": 0.28
+ }
+}
