@@ -1,0 +1,170 @@
+{
+ "theme": "night",
+ "issue": {
+  "kicker": "크레딧 숫자 #01",
+  "handle": "@nuku.mag",
+  "caption": "〈서울의 봄〉 크레딧, 배우 빼고 몇 명일까요? 넘기기 전에 댓글로 숫자 먼저 🎬\n\n#서울의봄 #엔딩크레딧 #영화스태프 #VFX #파묘 #크레딧숫자 #누쿠",
+  "music_hint": "기본 배경음악(_bgm.mp3) 자동 임베드"
+ },
+ "slides": [
+  {
+   "type": "hook",
+   "imgs": [
+    "_posters/seoul.jpg",
+    "_posters/pamyo.jpg",
+    "_posters/crime4.jpg",
+    "_posters/jangson.jpg"
+   ],
+   "gridh": 880,
+   "head": [
+    "〈서울의 봄〉 크레딧에",
+    "<em>이름 올린 사람</em>",
+    "몇 명일까요?"
+   ],
+   "sub": "배우 빼고, 카메라 뒤 사람만 세어 봤어요",
+   "fitmax": 92
+  },
+  {
+   "type": "statement",
+   "toplabel": "넘기기 전에",
+   "head": [
+    "댓글에 먼저",
+    "<em>숫자</em>를 적어 보세요"
+   ],
+   "sub": "감독·촬영·조명·VFX·마케팅까지<br>크레딧에 이름 올린 사람을 다 셌어요.<br><br>힌트: 100명보다 훨씬 많아요.",
+   "cat": "No.9.png",
+   "catpos": "right:96px;bottom:320px;width:160px",
+   "catol": true
+  },
+  {
+   "type": "big",
+   "toplabel": "정답",
+   "img": "_posters/seoul.jpg",
+   "imgh": 820,
+   "label": "〈서울의 봄〉 KOBIS 등록 스태프",
+   "big": "601명",
+   "head": [
+    "배우 빼고 <u>카메라 뒤</u>만"
+   ],
+   "cap": "크레딧 줄로는 610줄이에요.<br>두 가지 일을 한 사람은 1명으로 셌어요."
+  },
+  {
+   "type": "table",
+   "toplabel": "어느 팀이 제일 많을까",
+   "head": [
+    "10명 중 3명은",
+    "<em>VFX</em>였어요"
+   ],
+   "cols": [
+    "분야",
+    "인원"
+   ],
+   "rows": [
+    [
+     "<em>VFX</em>",
+     "<em>177명</em>"
+    ],
+    [
+     "제작",
+     "53명"
+    ],
+    [
+     "마케팅",
+     "52명"
+    ],
+    [
+     "촬영",
+     "37명"
+    ],
+    [
+     "DI/현상",
+     "33명"
+    ],
+    [
+     "특수효과",
+     "31명"
+    ],
+    [
+     "그 외 18개 분야",
+     "218명"
+    ]
+   ],
+   "note": "분야는 KOBIS 분류 그대로예요.<br>감독 1명 · 촬영감독 2명 · 편집 3명.",
+   "cat": "No.6.png",
+   "catpos": "right:90px;top:1450px;width:190px",
+   "catol": true
+  },
+  {
+   "type": "table",
+   "toplabel": "다른 영화는?",
+   "head": [
+    "같은 기준으로",
+    "<em>세 편 더</em> 세어 봤어요"
+   ],
+   "cols": [
+    "영화",
+    "전체",
+    "VFX"
+   ],
+   "rows": [
+    [
+     "파묘",
+     "<em>760명</em>",
+     "236명"
+    ],
+    [
+     "서울의 봄",
+     "601명",
+     "177명"
+    ],
+    [
+     "범죄도시4",
+     "441명",
+     "85명"
+    ],
+    [
+     "장손 <small>(독립 장편)</small>",
+     "15명",
+     "0명"
+    ]
+   ],
+   "note": "범죄도시4는 스태프 목록 속 '연기' 7명을 뺐어요.<br>한 사람은 목록에 처음 나온 분야로 셌어요.",
+   "cat": "No.2.png",
+   "catpos": "right:70px;top:1380px;width:240px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "알아 둘 점",
+   "head": [
+    "숫자는",
+    "<u>등록된 만큼</u>만 보여요"
+   ],
+   "sub": "KOBIS(영화관입장권 통합전산망)에 이름이 등록된 스태프 기준이에요. 실제로 참여한 인원과 다를 수 있고, 등록이 늦게 올라오는 작품도 있어요.",
+   "cat": "No.3.png",
+   "catpos": "right:100px;bottom:330px;width:180px",
+   "catol": true
+  },
+  {
+   "type": "cta",
+   "head": [
+    "다음엔 어떤 영화",
+    "<em>세어 볼까요?</em>"
+   ],
+   "sub": "댓글에 영화 제목 남겨 주세요.<br>가장 많이 나온 영화로 다음 편 만들게요.",
+   "ctaline": "내 크레딧은 nuku.im에 모아 두세요",
+   "disc": "출처 KOBIS 영화정보 스태프 목록 · 2026.10.12 조회 · 포스터 ⓒ 각 배급·제작사",
+   "cat": "Group 427319269.png",
+   "catpos": "left:330px;top:0;width:420px",
+   "catol": true
+  }
+ ],
+ "durations": {
+  "hook": 3.4,
+  "statement": 4.6,
+  "big": 4.2,
+  "table": 5.4,
+  "cta": 4.8,
+  "xfade": 0.28
+ }
+}

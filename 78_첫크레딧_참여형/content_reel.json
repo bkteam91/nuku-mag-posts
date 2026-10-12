@@ -1,0 +1,94 @@
+{
+ "theme": "night",
+ "issue": {
+  "kicker": "당신의 크레딧",
+  "handle": "@nuku.mag",
+  "caption": "엔딩크레딧에 처음 내 이름 봤던 날, 기억나세요? 🎬 댓글로 첫 작품 남겨주세요\n\n#엔딩크레딧 #첫작품 #영화스태프 #막내 #단편영화 #현장 #누쿠",
+  "music_hint": "기본 배경음악(_bgm.mp3) 자동 임베드"
+ },
+ "slides": [
+  {
+   "type": "hook",
+   "head": [
+    "당신의",
+    "<em>첫 크레딧</em>은",
+    "뭐였나요?"
+   ],
+   "img": "../_커버이미지/아트/첫크레딧_객석눈물웃음.png",
+   "imgstyle": "full",
+   "imgpos": "center 22%",
+   "fitmax": 92,
+   "sub": "엔딩크레딧에 처음 내 이름 올라간 날",
+   "kickcat": "No.4.png"
+  },
+  {
+   "type": "statement",
+   "toplabel": "다들 처음은 이랬어요",
+   "head": [
+    "맨 끝, 작은 글씨,",
+    "<u>그래도 내 이름</u>"
+   ],
+   "sub": "막내로 올라간 한 줄<br>'도움 주신 분들' 칸의 이름<br>학교 단편에 몇 개씩 겹쳐 적힌 직함<br>철자 틀린 채로 나간 이름까지",
+   "cat": "No.9.png",
+   "catpos": "right:96px;bottom:300px;width:150px",
+   "catol": true
+  },
+  {
+   "type": "steps",
+   "toplabel": "댓글은 이렇게",
+   "head": [
+    "딱 세 줄만",
+    "<em>남겨주세요</em>"
+   ],
+   "steps": [
+    {
+     "h": "작품 이름",
+     "d": "단편·학교 작품·광고·뮤비 다 좋아요"
+    },
+    {
+     "h": "그때 직함",
+     "d": "막내, 연출부, 촬영부 서드…"
+    },
+    {
+     "h": "기억나는 한 가지",
+     "d": "제일 힘들었던 것, 제일 웃겼던 것"
+    }
+   ],
+   "cat": "No.6.png",
+   "catpos": "right:90px;top:640px;width:210px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "모아서 소개할게요",
+   "head": [
+    "댓글로 모인 첫 크레딧,",
+    "<em>다음 편</em>에 모아서 올려요"
+   ],
+   "sub": "소개는 꼭 먼저 허락받고 할게요.<br>이름 대신 작품·직함만 남겨도 괜찮아요.",
+   "cat": "No.2.png",
+   "catpos": "right:60px;bottom:300px;width:260px",
+   "catol": true
+  },
+  {
+   "type": "cta",
+   "head": [
+    "첫 크레딧부터 지금까지,",
+    "<em>한 페이지에</em>"
+   ],
+   "sub": "흩어진 작품들, 누쿠에서<br>필모그래피로 모아 두세요.",
+   "ctaline": "첫 현장 같이 뛴 동료를 태그해 주세요",
+   "disc": "nuku.im",
+   "cat": "Group 427319269.png",
+   "catpos": "left:330px;top:0;width:420px",
+   "catol": true
+  }
+ ],
+ "durations": {
+  "hook": 3.4,
+  "statement": 4.6,
+  "steps": 5.2,
+  "cta": 4.8,
+  "xfade": 0.28
+ }
+}

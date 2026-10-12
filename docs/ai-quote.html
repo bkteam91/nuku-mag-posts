@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="format-detection" content="telephone=no"><title>카톡 의뢰로 견적서 틀 뽑는 프롬프트 · NUKU</title><meta property="og:type" content="article"><meta property="og:site_name" content="NUKU · @nuku.mag"><meta property="og:title" content="카톡 의뢰로 견적서 틀 뽑는 프롬프트"><meta property="og:description" content="의뢰 카톡을 붙여넣으면 항목·수량·조건·확인 질문까지 정리돼요. 단가는 비워 두고 내가 채우는 방식이에요. 무료 제미나이로 직접 돌려 봤어요."><meta property="og:image" content="https://bkteam91.github.io/nuku-mag-posts/docs/og/ai-quote.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="카톡 의뢰로 견적서 틀 뽑는 프롬프트"><meta name="twitter:description" content="의뢰 카톡을 붙여넣으면 항목·수량·조건·확인 질문까지 정리돼요. 단가는 비워 두고 내가 채우는 방식이에요. 무료 제미나이로 직접 돌려 봤어요."><meta name="twitter:image" content="https://bkteam91.github.io/nuku-mag-posts/docs/og/ai-quote.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--accent:#0273FF;--ink:#16181D;--soft:#3D424C;--muted:#8A909C;
+  --line:#E8EBF0;--card:#F5F7FB;--bg:#FFFFFF;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#EEF1F6;color:var(--ink);line-height:1.62;word-break:keep-all;
+  -webkit-font-smoothing:antialiased;}
+.wrap{max-width:560px;margin:0 auto;background:var(--bg);min-height:100vh;
+  box-shadow:0 0 40px rgba(0,0,0,.06);}
+.bar{display:flex;align-items:center;gap:9px;padding:18px 24px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:5;}
+.bar .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);}
+.bar .h{font-size:15px;font-weight:800;letter-spacing:-.01em;}
+.bar .tag{margin-left:auto;font-size:12px;font-weight:700;color:var(--muted);}
+.hero{padding:34px 24px 26px;}
+.kicker{display:inline-block;font-size:13px;font-weight:800;color:var(--accent);
+  background:rgba(2,115,255,.09);padding:6px 13px;border-radius:999px;letter-spacing:.01em;}
+h1{font-size:31px;font-weight:800;line-height:1.32;letter-spacing:-.03em;margin:18px 0 12px;}
+.sub{font-size:17px;color:var(--soft);font-weight:500;line-height:1.6;}
+.tldr{margin:8px 24px 12px;background:var(--card);border:1px solid var(--line);
+  border-radius:18px;padding:22px 22px;}
+.tldr .t{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.03em;margin-bottom:13px;}
+.tldr ul{list-style:none;}
+.tldr li{position:relative;padding-left:24px;font-size:16px;font-weight:600;color:var(--ink);
+  line-height:1.55;margin-bottom:11px;}
+.tldr li:last-child{margin-bottom:0;}
+.tldr li:before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:800;}
+section{padding:22px 24px;border-top:1px solid var(--line);}
+section h2{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.4;margin-bottom:12px;}
+section p{font-size:16.5px;color:var(--soft);line-height:1.66;margin-bottom:12px;}
+section p:last-child{margin-bottom:0;}
+b{color:var(--ink);font-weight:800;}
+em{font-style:normal;color:var(--accent);font-weight:700;}
+u{text-decoration:none;background:linear-gradient(transparent 60%,rgba(2,115,255,.18) 0);}
+.list{list-style:none;margin:6px 0 4px;}
+.list li{position:relative;padding-left:22px;font-size:16px;color:var(--soft);line-height:1.6;margin-bottom:10px;}
+.list li:before{content:'';position:absolute;left:4px;top:11px;width:6px;height:6px;
+  border-radius:50%;background:var(--accent);}
+.steps{counter-reset:s;margin:8px 0 2px;}
+.step{position:relative;padding-left:50px;margin-bottom:20px;}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+  width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;}
+.step .sh{font-size:17px;font-weight:800;line-height:1.4;padding-top:4px;}
+.step .sd{font-size:15px;color:var(--muted);line-height:1.55;margin-top:4px;}
+.callout{background:rgba(2,115,255,.07);border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:16px 18px;font-size:16px;font-weight:700;
+  color:var(--ink);line-height:1.55;margin:6px 0;}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 4px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px;}
+th{background:var(--accent);color:#fff;font-weight:800;padding:12px 13px;text-align:left;}
+td{padding:12px 13px;border-top:1px solid var(--line);color:var(--soft);
+  line-height:1.5;vertical-align:top;}
+tr td:first-child{font-weight:800;color:var(--ink);}
+td em{color:var(--accent);font-weight:800;}
+.chk{list-style:none;margin:6px 0;}
+.chk li{position:relative;padding-left:34px;font-size:16px;color:var(--ink);font-weight:600;
+  line-height:1.5;margin-bottom:14px;}
+.chk li:before{content:'';position:absolute;left:0;top:0;width:23px;height:23px;
+  border:2.5px solid var(--accent);border-radius:7px;}
+.contacts{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+.contact{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:15px 17px;text-decoration:none;color:inherit;}
+.contact .cn{font-size:15.5px;font-weight:800;}
+.contact .cd{font-size:15px;color:var(--accent);font-weight:700;margin-top:3px;}
+.disc{margin:0 24px;padding:18px 0 4px;font-size:13px;color:var(--muted);line-height:1.6;
+  border-top:1px dashed var(--line);}
+.disc b{color:var(--soft);}
+.sources{padding:18px 24px;}
+.sources .t{font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px;letter-spacing:.03em;}
+.sources a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  line-height:1.5;margin-bottom:7px;word-break:break-all;}
+.sources a:before{content:'↗ ';color:var(--accent);}
+.cta{margin:18px 20px 8px;background:linear-gradient(135deg,#0273FF,#015FE0);border-radius:22px;
+  padding:30px 26px;text-align:center;color:#fff;}
+.cta .ct{font-size:19px;font-weight:800;line-height:1.45;letter-spacing:-.02em;}
+.cta .cs{font-size:14.5px;color:rgba(255,255,255,.85);margin-top:8px;line-height:1.5;font-weight:500;}
+.cta a{display:inline-block;margin-top:18px;background:#fff;color:var(--accent);
+  font-size:16px;font-weight:800;text-decoration:none;padding:14px 30px;border-radius:999px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;}
+.wrap{overflow-x:hidden;}
+.prompt .ptxt{word-break:break-all;}
+.prompt{margin:14px 0;border:1.5px solid var(--accent);border-radius:16px;overflow:hidden;background:#F4F8FF;}
+.prompt .ptop{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;
+  background:var(--accent);color:#fff;font-size:13px;font-weight:800;}
+.prompt button{border:0;background:#fff;color:var(--accent);font-weight:800;font-size:13px;
+  padding:6px 14px;border-radius:999px;cursor:pointer;}
+.prompt .ptxt{padding:14px 16px;font-size:15px;line-height:1.7;white-space:pre-wrap;color:var(--ink);}
+figure{margin:14px 0;}
+figure img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;}
+.foot{text-align:center;padding:22px 24px 40px;font-size:12.5px;color:var(--muted);}
+.foot .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);
+  margin-right:6px;vertical-align:middle;}
+</style></head><body><div class="wrap"><div class="bar"><span class="dot"></span><span class="h">NUKU</span><span class="tag">@nuku.mag · 자료실</span></div><div class="hero"><span class="kicker">AI 현장툴 #03</span><h1>카톡 의뢰로 견적서 틀 뽑는 프롬프트</h1><div class="sub">의뢰 카톡을 붙여넣으면 항목·수량·조건·확인 질문까지 정리돼요. 단가는 비워 두고 내가 채우는 방식이에요. 무료 제미나이로 직접 돌려 봤어요.</div></div><div class="tldr"><div class="t">한눈에</div><ul><li><b>단가는 AI에 맡기지 마세요.</b> 프롬프트에 '비워 둬'를 꼭 넣어요</li><li>항목은 기획 / 촬영 / 편집·후반 / 기타로 나눠 달라고 하면 빠뜨리는 게 줄어요</li><li>표 아래 <b>조건 5줄</b>(수정·납품·대금·취소·유효기간)이 나중에 나를 지켜줘요</li><li>AI가 쓴 조건 속 숫자는 예시예요. 내 기준으로 고치세요</li></ul></div><section><h2>이렇게 나와요</h2><p>카페 오픈 홍보영상 의뢰 카톡(릴스 30초 1개 + 15초 2개, 촬영 하루)을 넣었더니 1분 안에 아래처럼 나왔어요. 15초 파생 2편, 장비대, 교통비까지 따로 잡아 줬고, 예산 200은 금액에 반영하지 않았어요(단가를 비워 두라고 했으니까요).</p><div class="tblwrap"><table><tr><th>구분</th><th>항목</th><th>내용</th><th>수량</th></tr><tr><td>기획</td><td>사전 기획 및 연출</td><td>컨셉 논의, 인터뷰 질문지·스토리보드</td><td>1 식</td></tr><tr><td>촬영</td><td>현장 촬영 (1일)</td><td>매장 스케치, 메뉴 컷, 사장님 인터뷰</td><td>1 회</td></tr><tr><td></td><td>촬영 장비대</td><td>카메라·조명·인터뷰용 오디오</td><td>1 식</td></tr><tr><td>편집·후반</td><td>메인 영상 편집</td><td>릴스 9:16 · 30초 (컷편집/자막)</td><td>1 편</td></tr><tr><td></td><td>바리에이션 편집</td><td>릴스 9:16 · 15초 (컷편집/자막)</td><td>2 편</td></tr><tr><td></td><td>색보정 및 오디오</td><td>색보정, 인터뷰 음향 보정, BGM 믹싱</td><td>1 식</td></tr><tr><td>기타</td><td>진행 및 교통비</td><td>장비 이동 교통비·식대 등</td><td>1 식</td></tr></table></div></section><section><h2>프롬프트</h2><p>[카톡 의뢰] 아래에 받은 의뢰를 그대로 붙여넣고 보내세요.</p><div class="prompt"><div class="ptop"><span>프롬프트</span><button type="button" onclick="cp(this)">복사</button></div><div class="ptxt">아래 카톡 의뢰로 영상 제작 견적서 초안을 표로 만들어줘.
+
+표의 열: 구분 | 항목 | 내용 | 수량 | 단위 | 단가 | 금액
+규칙:
+- 단가·금액 칸은 비워 둬. 내가 직접 채울게
+- 구분은 기획 / 촬영 / 편집·후반 / 기타 넷으로
+- 표 아래에 '견적 조건' 5줄: 수정 횟수, 납품 형식과 원본 파일 제공 여부, 대금 지급 일정, 일정 변경·취소 시, 견적 유효기간
+- 마지막에 의뢰 내용에서 빠져서 클라이언트에게 물어봐야 할 질문 3개
+
+[카톡 의뢰]
+(받은 의뢰 내용을 그대로 붙여넣으세요)</div></div></section><section><h2>AI가 써 준 조건 (예시)</h2><div class="callout">위 숫자(2회·50%·3일·20%)는 AI가 넣은 <b>예시</b>예요. 업계 표준이 아니니 내 기준과 상황에 맞게 고치고, 계약서에도 같은 내용을 넣으세요.</div><ul class="list"><li>수정: 무료 수정 최대 2회, 이후 별도 비용</li><li>납품: MP4 제공, 촬영 원본·프로젝트 파일은 기본 미제공(별도 협의)</li><li>대금: 계약 시 50%, 납품 후 7일 이내 50%</li><li>일정 변경·취소: 촬영일 3일 이내 변경·취소 시 견적 금액의 20%</li><li>유효기간: 발행일로부터 14일</li></ul></section><section><h2>덤: 클라이언트에게 먼저 물을 질문</h2><p>이 질문의 답에 따라 촬영 시간·인력·항목이 바뀌어요. 견적 보내기 전에 먼저 물어보세요.</p><ul class="list"><li>영업시간 중 촬영인가요, 영업 전·후에 가능한가요?</li><li>메뉴는 몇 가지이고, 식기·소품은 매장에서 준비하나요?</li><li>인터뷰 헤어·메이크업·의상은 직접 준비하시나요?</li></ul></section><section><h2>엑셀 견적서 양식</h2><p>단가만 넣으면 금액·공급가액·합계가 자동으로 계산돼요. 기본 항목 12줄과 조건 5줄이 들어 있어요. 부가세 줄은 사업자 유형에 맞게 지우거나 고쳐 쓰세요.<br><br><a href="files/quote-template.xlsx" download style="display:inline-block;background:#0273FF;color:#fff;font-weight:800;padding:12px 20px;border-radius:12px;text-decoration:none">엑셀 견적서 양식 받기</a></p></section><section><h2>한계</h2><ul class="list"><li>의뢰에 없는 항목(음원 라이선스, 출연료, 장소 대여 등)은 빠질 수 있어요</li><li>'BGM 믹싱'처럼 써 줘도 음원 사용료는 따로 잡아야 할 수 있어요</li><li>같은 의뢰라도 돌릴 때마다 항목 이름이 조금씩 달라요</li></ul></section><section><h2>체크리스트</h2><ul class="chk"><li>단가는 내가 채웠나</li><li>수정 횟수 적었나</li><li>원본 파일 제공 여부 적었나</li><li>대금 지급 일정 적었나</li><li>취소·변경 조건 적었나</li><li>유효기간 적었나</li><li>확인 질문 먼저 보냈나</li></ul></section><div class="disc"><b>안내</b> · AI 결과와 양식은 견적서 작성을 돕는 초안이에요. 세금·계약 조건은 상황마다 다르니 필요하면 세무사·전문가에게 확인하세요.</div><div class="sources"><div class="t">출처 (공식)</div><a href="https://gemini.google.com" target="_blank" rel="noopener">Google Gemini (무료 계정으로 2026-10-12 실측)</a></div><div class="cta"><div class="ct">함께 일할 촬영·편집 스태프를 찾는다면</div><a href="https://nuku.im" target="_blank" rel="noopener">누쿠에서 찾기</a></div><div class="foot"><span class="dot"></span>NUKU · 영상 현장인을 위한 경력 플랫폼</div></div><script>function cp(b){var t=b.closest('.prompt').querySelector('.ptxt').innerText;var d=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)};if(navigator.clipboard){navigator.clipboard.writeText(t).then(d,function(){f(t);d()})}else{f(t);d()}function f(x){var a=document.createElement('textarea');a.value=x;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}}</script></body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="format-detection" content="telephone=no"><title>단톡 공지를 일일촬영계획표로 바꾸는 프롬프트 · NUKU</title><meta property="og:type" content="article"><meta property="og:site_name" content="NUKU · @nuku.mag"><meta property="og:title" content="단톡 공지를 일일촬영계획표로 바꾸는 프롬프트"><meta property="og:description" content="촬영 전날 공지를 붙여넣으면 계획표 한 장으로 정리되고, 빠진 정보는 &#x27;확인 필요&#x27;로 드러나요. 무료 제미나이로 직접 돌려 봤어요."><meta property="og:image" content="https://bkteam91.github.io/nuku-mag-posts/docs/og/ai-callsheet.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="단톡 공지를 일일촬영계획표로 바꾸는 프롬프트"><meta name="twitter:description" content="촬영 전날 공지를 붙여넣으면 계획표 한 장으로 정리되고, 빠진 정보는 &#x27;확인 필요&#x27;로 드러나요. 무료 제미나이로 직접 돌려 봤어요."><meta name="twitter:image" content="https://bkteam91.github.io/nuku-mag-posts/docs/og/ai-callsheet.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--accent:#0273FF;--ink:#16181D;--soft:#3D424C;--muted:#8A909C;
+  --line:#E8EBF0;--card:#F5F7FB;--bg:#FFFFFF;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#EEF1F6;color:var(--ink);line-height:1.62;word-break:keep-all;
+  -webkit-font-smoothing:antialiased;}
+.wrap{max-width:560px;margin:0 auto;background:var(--bg);min-height:100vh;
+  box-shadow:0 0 40px rgba(0,0,0,.06);}
+.bar{display:flex;align-items:center;gap:9px;padding:18px 24px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:5;}
+.bar .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);}
+.bar .h{font-size:15px;font-weight:800;letter-spacing:-.01em;}
+.bar .tag{margin-left:auto;font-size:12px;font-weight:700;color:var(--muted);}
+.hero{padding:34px 24px 26px;}
+.kicker{display:inline-block;font-size:13px;font-weight:800;color:var(--accent);
+  background:rgba(2,115,255,.09);padding:6px 13px;border-radius:999px;letter-spacing:.01em;}
+h1{font-size:31px;font-weight:800;line-height:1.32;letter-spacing:-.03em;margin:18px 0 12px;}
+.sub{font-size:17px;color:var(--soft);font-weight:500;line-height:1.6;}
+.tldr{margin:8px 24px 12px;background:var(--card);border:1px solid var(--line);
+  border-radius:18px;padding:22px 22px;}
+.tldr .t{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.03em;margin-bottom:13px;}
+.tldr ul{list-style:none;}
+.tldr li{position:relative;padding-left:24px;font-size:16px;font-weight:600;color:var(--ink);
+  line-height:1.55;margin-bottom:11px;}
+.tldr li:last-child{margin-bottom:0;}
+.tldr li:before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:800;}
+section{padding:22px 24px;border-top:1px solid var(--line);}
+section h2{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.4;margin-bottom:12px;}
+section p{font-size:16.5px;color:var(--soft);line-height:1.66;margin-bottom:12px;}
+section p:last-child{margin-bottom:0;}
+b{color:var(--ink);font-weight:800;}
+em{font-style:normal;color:var(--accent);font-weight:700;}
+u{text-decoration:none;background:linear-gradient(transparent 60%,rgba(2,115,255,.18) 0);}
+.list{list-style:none;margin:6px 0 4px;}
+.list li{position:relative;padding-left:22px;font-size:16px;color:var(--soft);line-height:1.6;margin-bottom:10px;}
+.list li:before{content:'';position:absolute;left:4px;top:11px;width:6px;height:6px;
+  border-radius:50%;background:var(--accent);}
+.steps{counter-reset:s;margin:8px 0 2px;}
+.step{position:relative;padding-left:50px;margin-bottom:20px;}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+  width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;}
+.step .sh{font-size:17px;font-weight:800;line-height:1.4;padding-top:4px;}
+.step .sd{font-size:15px;color:var(--muted);line-height:1.55;margin-top:4px;}
+.callout{background:rgba(2,115,255,.07);border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:16px 18px;font-size:16px;font-weight:700;
+  color:var(--ink);line-height:1.55;margin:6px 0;}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 4px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px;}
+th{background:var(--accent);color:#fff;font-weight:800;padding:12px 13px;text-align:left;}
+td{padding:12px 13px;border-top:1px solid var(--line);color:var(--soft);
+  line-height:1.5;vertical-align:top;}
+tr td:first-child{font-weight:800;color:var(--ink);}
+td em{color:var(--accent);font-weight:800;}
+.chk{list-style:none;margin:6px 0;}
+.chk li{position:relative;padding-left:34px;font-size:16px;color:var(--ink);font-weight:600;
+  line-height:1.5;margin-bottom:14px;}
+.chk li:before{content:'';position:absolute;left:0;top:0;width:23px;height:23px;
+  border:2.5px solid var(--accent);border-radius:7px;}
+.contacts{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+.contact{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:15px 17px;text-decoration:none;color:inherit;}
+.contact .cn{font-size:15.5px;font-weight:800;}
+.contact .cd{font-size:15px;color:var(--accent);font-weight:700;margin-top:3px;}
+.disc{margin:0 24px;padding:18px 0 4px;font-size:13px;color:var(--muted);line-height:1.6;
+  border-top:1px dashed var(--line);}
+.disc b{color:var(--soft);}
+.sources{padding:18px 24px;}
+.sources .t{font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px;letter-spacing:.03em;}
+.sources a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  line-height:1.5;margin-bottom:7px;word-break:break-all;}
+.sources a:before{content:'↗ ';color:var(--accent);}
+.cta{margin:18px 20px 8px;background:linear-gradient(135deg,#0273FF,#015FE0);border-radius:22px;
+  padding:30px 26px;text-align:center;color:#fff;}
+.cta .ct{font-size:19px;font-weight:800;line-height:1.45;letter-spacing:-.02em;}
+.cta .cs{font-size:14.5px;color:rgba(255,255,255,.85);margin-top:8px;line-height:1.5;font-weight:500;}
+.cta a{display:inline-block;margin-top:18px;background:#fff;color:var(--accent);
+  font-size:16px;font-weight:800;text-decoration:none;padding:14px 30px;border-radius:999px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;}
+.wrap{overflow-x:hidden;}
+.prompt .ptxt{word-break:break-all;}
+.prompt{margin:14px 0;border:1.5px solid var(--accent);border-radius:16px;overflow:hidden;background:#F4F8FF;}
+.prompt .ptop{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;
+  background:var(--accent);color:#fff;font-size:13px;font-weight:800;}
+.prompt button{border:0;background:#fff;color:var(--accent);font-weight:800;font-size:13px;
+  padding:6px 14px;border-radius:999px;cursor:pointer;}
+.prompt .ptxt{padding:14px 16px;font-size:15px;line-height:1.7;white-space:pre-wrap;color:var(--ink);}
+figure{margin:14px 0;}
+figure img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;}
+.foot{text-align:center;padding:22px 24px 40px;font-size:12.5px;color:var(--muted);}
+.foot .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);
+  margin-right:6px;vertical-align:middle;}
+</style></head><body><div class="wrap"><div class="bar"><span class="dot"></span><span class="h">NUKU</span><span class="tag">@nuku.mag · 자료실</span></div><div class="hero"><span class="kicker">AI 현장툴 #04</span><h1>단톡 공지를 일일촬영계획표로 바꾸는 프롬프트</h1><div class="sub">촬영 전날 공지를 붙여넣으면 계획표 한 장으로 정리되고, 빠진 정보는 '확인 필요'로 드러나요. 무료 제미나이로 직접 돌려 봤어요.</div></div><div class="tldr"><div class="t">한눈에</div><ul><li><b>'지어내지 마'</b> 한 줄이 핵심이에요. 없으면 AI가 빈칸을 그럴듯하게 채워요</li><li>예시 공지 한 통에서 '확인 필요'가 <b>21칸</b> 나왔어요</li><li>보내기 전에 빈칸을 채우는 용도예요. 최종본은 조감독이 확인하세요</li><li>배우·스태프 연락처, 집 주소 같은 개인정보는 AI에 넣지 마세요</li></ul></div><section><h2>이렇게 나와요</h2><p>'내일 망원동 빨래방, 스태프 7시, 씬 7→3→12, 비 소식' 정도의 흔한 공지를 넣었어요. 주차·식사·날씨는 정리해 줬고, 몇 월인지·정확한 주소·씬별 실내/실외·배우 도착 시간처럼 공지에 없던 건 전부 '확인 필요'로 남겼어요.</p><figure><img src="img/ai-callsheet/01_result.jpg" alt="" loading="lazy"><figcaption>제미나이 실제 결과(일부) · 빨간 칸이 공지에 없던 정보</figcaption></figure></section><section><h2>프롬프트</h2><p>[단톡방 공지] 아래에 공지를 그대로 붙여넣으세요. 연락처는 지우고 넣으세요.</p><div class="prompt"><div class="ptop"><span>프롬프트</span><button type="button" onclick="cp(this)">복사</button></div><div class="ptxt">아래 단톡방 공지를 촬영 하루치 일일촬영계획표(콜시트) 한 장으로 정리해줘.
+
+1) 맨 위: 촬영일 · 장소와 주소 · 주차 · 스태프 집합 시간 · 날씨 메모 · 연락 담당
+2) 씬 표: 촬영 순서 | 씬 번호 | 내/외 | 낮/밤 | 내용 | 출연 | 예정 시간
+3) 배우 표: 배우 | 집합 | 분장·의상 | 촬영 투입 씬
+4) 식사·이동 시간
+규칙: 공지에 없는 정보는 지어내지 말고 칸에 '확인 필요'라고 써줘. 맨 끝에 공지에서 빠져서 조감독에게 물어봐야 할 것 목록.
+
+[단톡방 공지]
+(공지를 그대로 붙여넣으세요)</div></div></section><section><h2>이 공지에서 빠져 있던 것 (AI가 뽑은 질문)</h2><div class="callout">'주소는 링크 다시 올릴게요'처럼 <b>나중에 줄 정보</b>는 공지에서 제일 잘 빠져요. 계획표 칸을 먼저 만들고 채우면 안 빠져요.</div><ul class="list"><li>몇 월인지, 촬영장 정확한 주소, 조감독 연락처</li><li>씬 7·3·12의 실내/실외, 7·3번의 낮/밤, 씬 내용과 출연 배우</li><li>7·3번 촬영 시작 시간, 이동 시간</li><li>지수 배우 현장 도착 시간, 민호 배우 분장 시작 시간, 배우별 투입 씬</li></ul></section><section><h2>엑셀 양식</h2><p>기본 정보 9칸(회차·주소·주차·집합·날씨·비상연락·가까운 병원 등), 씬 순서 8줄, 배우 5줄, 시간표 8줄이 들어 있어요. 칸 구성은 팀 양식에 맞게 고쳐 쓰세요.<br><br><a href="files/callsheet-template.xlsx" download style="display:inline-block;background:#0273FF;color:#fff;font-weight:800;padding:12px 20px;border-radius:12px;text-decoration:none">일일촬영계획표 엑셀 양식 받기</a></p></section><section><h2>한계</h2><ul class="list"><li>씬 내용은 공지에 없으면 못 채워요 — 대본이나 촬영 스케줄을 같이 넣으면 더 채워져요</li><li>날씨·일출·일몰은 AI 말고 기상청에서 확인하세요</li><li>양식·용어는 제작사마다 달라요</li></ul></section><section><h2>체크리스트</h2><ul class="chk"><li>'지어내지 마' 규칙 넣었나</li><li>연락처·주소 개인정보 지웠나</li><li>'확인 필요' 칸 다 채웠나</li><li>조감독이 최종 확인했나</li></ul></section><div class="disc"><b>안내</b> · AI 결과는 정리 초안이에요. 일일촬영계획표 양식과 용어는 제작사·팀마다 다를 수 있어요.</div><div class="sources"><div class="t">출처 (공식)</div><a href="https://gemini.google.com" target="_blank" rel="noopener">Google Gemini (무료 계정으로 2026-10-12 실측)</a></div><div class="cta"><div class="ct">함께 일할 연출부·제작부를 찾는다면</div><a href="https://nuku.im" target="_blank" rel="noopener">누쿠에서 찾기</a></div><div class="foot"><span class="dot"></span>NUKU · 영상 현장인을 위한 경력 플랫폼</div></div><script>function cp(b){var t=b.closest('.prompt').querySelector('.ptxt').innerText;var d=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)};if(navigator.clipboard){navigator.clipboard.writeText(t).then(d,function(){f(t);d()})}else{f(t);d()}function f(x){var a=document.createElement('textarea');a.value=x;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}}</script></body></html>

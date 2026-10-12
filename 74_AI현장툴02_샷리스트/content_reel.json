@@ -1,0 +1,134 @@
+{
+ "theme": "night",
+ "issue": {
+  "kicker": "AI 현장툴 #02",
+  "handle": "@nuku.mag",
+  "caption": "대본 10줄 붙여넣었더니 샷 14개가 표로 나왔어요 📋\n\n#샷리스트 #콘티 #연출부 #영상제작 #AI툴 #제미나이 #누쿠",
+  "music_hint": "기본 배경음악(_bgm.mp3) 자동 임베드"
+ },
+ "slides": [
+  {
+   "type": "hook",
+   "head": [
+    "대본 붙여넣으면",
+    "<em>샷리스트가 1분</em>"
+   ],
+   "sub": "콘티 다음 단계, 대본으로 샷 나누는 법",
+   "img": "../_커버이미지/아트/샷리스트_윙크클립보드.png",
+   "imgstyle": "full",
+   "imgpos": "center 20%",
+   "fitmax": 96,
+   "kickcat": "No.4.png",
+   "hookblue": true,
+   "script": "on set with nuku"
+  },
+  {
+   "type": "statement",
+   "toplabel": "STEP 1 · 지난번 빨래방 장면",
+   "head": [
+    "대본 <u>10줄</u>을",
+    "그대로 붙여넣어요"
+   ],
+   "sub": "S#3. 동네 빨래방 / 밤<br>텅 빈 빨래방. 지수가 돌아가는 빨래를 본다.<br>민호: ...여기 아직 다녀?<br>지수: (시선 피하며) 집 앞이니까.<br>지수, 말없이 동전 하나를 밀어 준다.",
+   "cat": "No.9.png",
+   "catpos": "right:96px;bottom:300px;width:150px",
+   "catol": true
+  },
+  {
+   "type": "show",
+   "toplabel": "STEP 2 · 1분 안에",
+   "label": "제미나이 실제 결과 14샷 · 열 7개 중 4개만 옮김",
+   "head": [
+    "샷 14개가 <em>표로</em> 나와요"
+   ],
+   "img": "_art/제미나이_샷리스트_정리.png",
+   "meta": [
+    [
+     "알아서 한 것",
+     "대화 장면 리버스 샷 짝 맞추기"
+    ],
+    [
+     "따로 뺀 것",
+     "손·동전·건조기 인서트 4컷"
+    ]
+   ],
+   "cat": "No.7.png",
+   "catpos": "right:50px;bottom:180px;width:250px",
+   "catol": true
+  },
+  {
+   "type": "steps",
+   "toplabel": "부탁할 때 넣을 4줄",
+   "head": [
+    "이 규칙을 넣어야",
+    "<em>쓸 만하게 나와요</em>"
+   ],
+   "steps": [
+    {
+     "h": "표의 열을 정해 주기",
+     "d": "샷 번호·크기·앵글·움직임·내용·대사"
+    },
+    {
+     "h": "한 샷에 한 동작",
+     "d": "안 정하면 샷 하나에 동작이 몰려요"
+    },
+    {
+     "h": "대화는 리버스 샷 짝으로",
+     "d": "A가 말하면 B의 반응 샷도 함께"
+    },
+    {
+     "h": "손·사물은 인서트로 따로",
+     "d": "나중에 몰아 찍기 쉬워져요"
+    }
+   ],
+   "cat": "No.6.png",
+   "catpos": "right:90px;top:640px;width:210px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "STEP 3 · 촬영 순서까지",
+   "head": [
+    "같은 방향끼리",
+    "<em>묶어서</em> 찍게 해줘요"
+   ],
+   "sub": "A 지수 방향 → 1 · 2 · 5 · 8 · 14<br>B 민호 방향 → 4 · 6 · 7 · 9 · 12<br>C 인서트 → 3 · 10 · 11 · 13<br><br>카메라·조명을 한 번만 넘기면 돼요.",
+   "cat": "No.2.png",
+   "catpos": "right:60px;bottom:300px;width:260px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "주의할 점",
+   "head": [
+    "그대로 찍지 말고",
+    "<u>초안</u>으로 쓰세요"
+   ],
+   "sub": "2번 샷 '패닝'처럼 이유 없는 카메라 움직임도 섞여 나와요. 렌즈와 무빙은 감독·촬영감독과 정하고, 표는 회의용 출발점으로 쓰세요.",
+   "cat": "No.3.png",
+   "catpos": "right:100px;bottom:320px;width:190px",
+   "catol": true
+  },
+  {
+   "type": "cta",
+   "head": [
+    "프롬프트 + 엑셀 양식,",
+    "<em>DM으로 드려요</em>"
+   ],
+   "sub": "댓글에 <b>샷리스트</b> 남기면<br>그대로 복사해 쓰는 프롬프트와<br>바로 채우는 엑셀 양식을 보내드려요.",
+   "ctaline": "샷 나누다 밤새는 연출부한테 보내주세요",
+   "disc": "함께 일할 연출부·촬영부는 nuku.im에서 찾을 수 있어요.",
+   "cat": "Group 427319269.png",
+   "catpos": "left:330px;top:0;width:420px",
+   "catol": true
+  }
+ ],
+ "durations": {
+  "hook": 3.2,
+  "statement": 4.6,
+  "show": 5.4,
+  "steps": 5.8,
+  "cta": 4.8,
+  "xfade": 0.28
+ }
+}

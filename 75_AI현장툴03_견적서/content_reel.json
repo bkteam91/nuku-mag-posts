@@ -1,0 +1,140 @@
+{
+ "theme": "night",
+ "issue": {
+  "kicker": "AI 현장툴 #03",
+  "handle": "@nuku.mag",
+  "caption": "카톡 의뢰 한 통 붙여넣었더니 견적서 틀이 1분 만에 나왔어요 🧾\n\n#견적서 #영상제작 #프리랜서 #외주 #AI툴 #제미나이 #누쿠",
+  "music_hint": "기본 배경음악(_bgm.mp3) 자동 임베드"
+ },
+ "slides": [
+  {
+   "type": "hook",
+   "head": [
+    "카톡 의뢰 붙여넣으면",
+    "<em>견적서 틀이 1분</em>"
+   ],
+   "sub": "단가만 내가 채우면 끝나는 견적서 만드는 법",
+   "img": "../_커버이미지/아트/견적서_카페계산기.png",
+   "imgstyle": "full",
+   "imgpos": "center 20%",
+   "fitmax": 96,
+   "kickcat": "No.4.png",
+   "hookblue": true,
+   "script": "on set with nuku"
+  },
+  {
+   "type": "statement",
+   "toplabel": "STEP 1 · 이런 카톡 받았을 때",
+   "head": [
+    "의뢰 카톡을",
+    "<u>그대로</u> 붙여넣어요"
+   ],
+   "sub": "\"카페 오픈 홍보영상 문의드려요!<br>릴스용 30초 1개, 15초 2개요.<br>촬영은 하루, 매장에서요.<br>사장님 인터뷰 조금, 메뉴 컷 많이.<br>10월 말까지 받고 싶어요.\"",
+   "cat": "No.9.png",
+   "catpos": "right:96px;bottom:300px;width:150px",
+   "catol": true
+  },
+  {
+   "type": "show",
+   "toplabel": "STEP 2 · 1분 안에",
+   "label": "제미나이 실제 결과 · 단가 칸은 일부러 비움",
+   "head": [
+    "항목이 <em>알아서 쪼개져요</em>"
+   ],
+   "img": "_art/제미나이_견적서_정리.png",
+   "meta": [
+    [
+     "나눠 준 것",
+     "기획 · 촬영 · 편집·후반 · 기타"
+    ],
+    [
+     "챙겨 준 것",
+     "15초 파생 2편, 장비대, 교통비"
+    ]
+   ],
+   "cat": "No.7.png",
+   "catpos": "right:50px;bottom:180px;width:250px",
+   "catol": true
+  },
+  {
+   "type": "big",
+   "toplabel": "제일 중요한 한 줄",
+   "label": "부탁할 때 꼭",
+   "big": "단가는 비워",
+   "head": [
+    "숫자는 <u>내가</u> 채워요"
+   ],
+   "cap": "AI한테 금액까지 맡기면 내 기준과 다른 숫자가 나와요.<br>항목만 받고, 단가는 내가 넣으세요.",
+   "cat": "No.10.png",
+   "catpos": "right:70px;bottom:330px;width:260px"
+  },
+  {
+   "type": "steps",
+   "toplabel": "STEP 3 · 표 아래 조건까지",
+   "head": [
+    "견적서에서 빠지기 쉬운",
+    "<em>조건 5줄</em>도 써줘요"
+   ],
+   "steps": [
+    {
+     "h": "수정 몇 번까지",
+     "d": "무료 수정 횟수, 그 뒤는 별도"
+    },
+    {
+     "h": "납품 형식 · 원본 파일",
+     "d": "촬영 원본은 기본 포함인지 아닌지"
+    },
+    {
+     "h": "대금 언제 받나",
+     "d": "계약 때 얼마, 납품 후 며칠 안에"
+    },
+    {
+     "h": "일정 변경·취소하면",
+     "d": "며칠 전까지 무료인지"
+    },
+    {
+     "h": "견적 유효기간",
+     "d": "예: 견적일로부터 14일"
+    }
+   ],
+   "cat": "No.6.png",
+   "catpos": "right:90px;top:640px;width:200px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "덤 · 물어볼 것도 뽑아줘요",
+   "head": [
+    "클라이언트에게",
+    "<em>먼저 물을 질문 3개</em>"
+   ],
+   "sub": "① 영업시간 중 촬영인가요, 영업 전·후인가요?<br>② 메뉴는 몇 가지, 식기·소품은 누가 준비하나요?<br>③ 인터뷰 헤어·메이크업은 직접 하시나요?",
+   "disc": "조건 속 숫자(수정 2회·선금 50% 등)는 AI가 넣은 예시예요. 내 기준으로 고치세요.",
+   "cat": "No.3.png",
+   "catpos": "right:100px;bottom:360px;width:180px",
+   "catol": true
+  },
+  {
+   "type": "cta",
+   "head": [
+    "프롬프트 + 엑셀 견적서,",
+    "<em>DM으로 드려요</em>"
+   ],
+   "sub": "댓글에 <b>견적서</b> 남기면<br>그대로 쓰는 프롬프트와<br>금액이 자동 계산되는 엑셀 양식을 보내드려요.",
+   "ctaline": "견적 막막한 친구한테 보내주세요",
+   "disc": "함께 일할 촬영·편집 스태프는 nuku.im에서 찾을 수 있어요.",
+   "cat": "Group 427319269.png",
+   "catpos": "left:330px;top:0;width:420px",
+   "catol": true
+  }
+ ],
+ "durations": {
+  "hook": 3.2,
+  "statement": 4.8,
+  "show": 5.4,
+  "big": 4.4,
+  "steps": 6.2,
+  "cta": 4.8,
+  "xfade": 0.28
+ }
+}

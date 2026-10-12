@@ -1,0 +1,130 @@
+{
+ "theme": "night",
+ "issue": {
+  "kicker": "AI 현장툴 #04",
+  "handle": "@nuku.mag",
+  "caption": "단톡방 촬영 공지 한 통을 콜시트로 바꿨더니 '확인 필요'가 21개 나왔어요 ☔\n\n#콜시트 #일일촬영계획표 #조감독 #연출부 #AI툴 #제미나이 #누쿠",
+  "music_hint": "기본 배경음악(_bgm.mp3) 자동 임베드"
+ },
+ "slides": [
+  {
+   "type": "hook",
+   "head": [
+    "단톡 공지 한 통에",
+    "<em>'확인 필요' 21개</em>"
+   ],
+   "sub": "공지를 콜시트로 바꾸면 빠진 게 보여요",
+   "img": "../_커버이미지/아트/콜시트_우비손가락.png",
+   "imgstyle": "full",
+   "imgpos": "center 20%",
+   "fitmax": 96,
+   "kickcat": "No.4.png",
+   "hookblue": true,
+   "script": "on set with nuku"
+  },
+  {
+   "type": "statement",
+   "toplabel": "STEP 1 · 흔한 촬영 전날 공지",
+   "head": [
+    "이 공지, 다 적은 것 같죠?",
+    "<u>그대로</u> 붙여넣어요"
+   ],
+   "sub": "\"내일(14일) 망원동 빨래방이고 주소는 링크 다시 올릴게요. 스태프 7시 집합, 지수 배우님 8시 반 분장, 민호 배우님 10시. 씬은 7번 먼저, 3번, 12번. 12번은 밤씬이라 저녁 먹고 7시부터. 비 소식 있으니 우비 챙겨주세요~\"",
+   "cat": "No.9.png",
+   "catpos": "right:96px;bottom:300px;width:150px",
+   "catol": true
+  },
+  {
+   "type": "show",
+   "toplabel": "STEP 2 · 1분 안에",
+   "label": "제미나이 실제 결과 · 일부만 옮김",
+   "head": [
+    "빈칸이 <em>빨갛게</em> 보여요"
+   ],
+   "img": "_art/제미나이_콜시트_정리.png",
+   "meta": [
+    [
+     "지어내지 않게",
+     "없는 정보는 '확인 필요'로"
+    ],
+    [
+     "정리해 준 것",
+     "집합·주차·식사·날씨"
+    ]
+   ],
+   "cat": "No.7.png",
+   "catpos": "right:50px;bottom:180px;width:250px",
+   "catol": true
+  },
+  {
+   "type": "big",
+   "toplabel": "제일 중요한 한 줄",
+   "label": "부탁할 때 꼭",
+   "big": "지어내지 마",
+   "head": [
+    "없는 건 <u>'확인 필요'</u>로"
+   ],
+   "cap": "이 한 줄이 없으면 AI가 빈칸을 그럴듯하게 채워요.<br>틀린 집합 시간이 단톡방에 퍼지는 게 제일 위험해요.",
+   "cat": "No.10.png",
+   "catpos": "right:70px;bottom:330px;width:260px"
+  },
+  {
+   "type": "steps",
+   "toplabel": "STEP 3 · 조감독에게 물을 것까지",
+   "head": [
+    "이 공지에서",
+    "<em>빠져 있던 것들</em>"
+   ],
+   "steps": [
+    {
+     "h": "몇 월 · 정확한 주소 · 연락처",
+     "d": "'링크 다시 올릴게요'는 주소가 아니에요"
+    },
+    {
+     "h": "씬마다 실내/실외 · 낮/밤",
+     "d": "7번·3번은 언제 찍는지도 없어요"
+    },
+    {
+     "h": "배우 도착 시간 · 투입 씬",
+     "d": "도착과 분장 시작이 같은 시간인지 물어보세요"
+    }
+   ],
+   "cat": "No.6.png",
+   "catpos": "right:90px;top:640px;width:200px",
+   "catol": true
+  },
+  {
+   "type": "statement",
+   "toplabel": "주의할 점",
+   "head": [
+    "양식은 <u>제작사마다</u> 달라요"
+   ],
+   "sub": "일일촬영계획표 칸 구성은 팀마다 달라요. AI 결과는 빠진 걸 찾는 용도로 쓰고, 최종본은 조감독이 확인해서 보내세요. 배우·스태프 연락처는 AI에 넣지 마세요.",
+   "cat": "No.3.png",
+   "catpos": "right:100px;bottom:320px;width:190px",
+   "catol": true
+  },
+  {
+   "type": "cta",
+   "head": [
+    "프롬프트 + 콜시트 양식,",
+    "<em>DM으로 드려요</em>"
+   ],
+   "sub": "댓글에 <b>콜시트</b> 남기면<br>그대로 쓰는 프롬프트와<br>바로 채우는 엑셀 양식을 보내드려요.",
+   "ctaline": "공지 쓰는 조감독한테 보내주세요",
+   "disc": "함께 일할 연출부는 nuku.im에서 찾을 수 있어요.",
+   "cat": "Group 427319269.png",
+   "catpos": "left:330px;top:0;width:420px",
+   "catol": true
+  }
+ ],
+ "durations": {
+  "hook": 3.2,
+  "statement": 5.0,
+  "show": 5.4,
+  "big": 4.4,
+  "steps": 5.8,
+  "cta": 4.8,
+  "xfade": 0.28
+ }
+}
