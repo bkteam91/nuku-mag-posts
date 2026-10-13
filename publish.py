@@ -8,6 +8,7 @@ NUKU @nuku.mag 인스타그램 카드뉴스 자동 발행기 (Instagram Graph AP
 [필요 환경변수 / GitHub Secrets]
   IG_USER_ID       : 인스타 비즈니스 계정 ID (숫자)
   IG_ACCESS_TOKEN  : 장기/시스템유저 액세스 토큰
+  TEAM91_IG_USER_ID / TEAM91_IG_ACCESS_TOKEN : 팀91(@team91.kr) 계정용. --account team91일 때 사용
   IMG_BASE         : 이미지 공개 URL의 베이스 (예: https://raw.githubusercontent.com/<유저>/<레포>/main)
   GRAPH_VERSION    : (선택) 기본 v21.0
 
@@ -18,6 +19,8 @@ NUKU @nuku.mag 인스타그램 카드뉴스 자동 발행기 (Instagram Graph AP
   python publish.py --deck 02_계약전_물어야할7가지 --dry-run
   # 예약 큐 처리 (GitHub Actions 크론에서 호출)
   python publish.py --queue queue.json
+  # 팀91 계정으로 발행 (기본값은 nuku)
+  python publish.py --deck 팀91_01_예시 --account team91
 """
 import os, sys, time, json, glob, argparse, urllib.parse
 from datetime import datetime, timezone, timedelta
@@ -32,9 +35,15 @@ GRAPH = "https://graph.instagram.com/" + os.environ.get("GRAPH_VERSION", "v21.0"
 KST = timezone(timedelta(hours=9))
 
 
-def cfg():
-    uid = os.environ.get("IG_USER_ID", "").strip()
-    tok = os.environ.get("IG_ACCESS_TOKEN", "").strip()
+ACCOUNTS = {"nuku": "", "team91": "TEAM91_"}   # 계정 → 환경변수 접두어
+
+
+def cfg(account="nuku"):
+    if account not in ACCOUNTS:
+        raise SystemExit(f"[!] 모르는 계정: {account} (가능: {', '.join(ACCOUNTS)})")
+    pre = ACCOUNTS[account]
+    uid = os.environ.get(pre + "IG_USER_ID", "").strip()
+    tok = os.environ.get(pre + "IG_ACCESS_TOKEN", "").strip()
     base = os.environ.get("IMG_BASE", "").strip().rstrip("/")
     return uid, tok, base
 
@@ -83,15 +92,15 @@ def _wait_finished(container_id, tok, tries=20, gap=3):
     return True  # 이미지는 보통 즉시 완료. 타임아웃이어도 발행 시도.
 
 
-def publish_reel(deck, dry_run=False):
+def publish_reel(deck, dry_run=False, account="nuku"):
     """덱에 reel.mp4가 있으면 릴스(영상)로 발행. 커버=frame01.png, 무음(트렌딩 오디오는 앱에서만 가능)."""
-    uid, tok, base = cfg()
+    uid, tok, base = cfg(account)
     cap_path = os.path.join(deck, "caption.txt")
     caption = open(cap_path, encoding="utf-8").read().strip() if os.path.exists(cap_path) else ""
     video_url = img_url(base, deck, "reel.mp4")
     cover_url = img_url(base, deck, "frame01.png") if os.path.exists(os.path.join(deck, "frame01.png")) else None
 
-    print(f"\n=== 릴스 발행: {deck} ===")
+    print(f"\n=== 릴스 발행: {deck} [{account}] ===")
     print("  video:", video_url)
     if cover_url:
         print("  cover:", cover_url)
@@ -101,7 +110,7 @@ def publish_reel(deck, dry_run=False):
         print("\n[DRY-RUN] 실제 게시는 하지 않았습니다. video_url이 브라우저에서 재생되는지 확인하세요.")
         return None
     if not (uid and tok and base):
-        raise SystemExit("[!] IG_USER_ID / IG_ACCESS_TOKEN / IMG_BASE 환경변수를 설정하세요.")
+        raise SystemExit(f"[!] {ACCOUNTS[account]}IG_USER_ID / {ACCOUNTS[account]}IG_ACCESS_TOKEN / IMG_BASE 환경변수를 설정하세요.")
 
     # 1) 릴스 컨테이너 생성
     data = {"media_type": "REELS", "video_url": video_url, "caption": caption,
@@ -118,16 +127,16 @@ def publish_reel(deck, dry_run=False):
     return pub["id"]
 
 
-def publish_deck(deck, dry_run=False):
+def publish_deck(deck, dry_run=False, account="nuku"):
     # reel.mp4가 있으면 릴스(영상)로, 없으면 카드뉴스(이미지 캐러셀)로 분기
     if os.path.exists(os.path.join(deck, "reel.mp4")):
-        return publish_reel(deck, dry_run)
+        return publish_reel(deck, dry_run, account)
 
-    uid, tok, base = cfg()
+    uid, tok, base = cfg(account)
     imgs, caption = deck_assets(deck)
     urls = [img_url(base, deck, f) for f in imgs]
 
-    print(f"\n=== 발행: {deck} ===")
+    print(f"\n=== 발행: {deck} [{account}] ===")
     print(f"이미지 {len(urls)}장 · 캡션 {len(caption)}자")
     for u in urls:
         print("  ·", u)
@@ -136,7 +145,7 @@ def publish_deck(deck, dry_run=False):
         print("\n[DRY-RUN] 실제 게시는 하지 않았습니다. URL이 브라우저에서 열리는지 확인하세요.")
         return None
     if not (uid and tok and base):
-        raise SystemExit("[!] IG_USER_ID / IG_ACCESS_TOKEN / IMG_BASE 환경변수를 설정하세요.")
+        raise SystemExit(f"[!] {ACCOUNTS[account]}IG_USER_ID / {ACCOUNTS[account]}IG_ACCESS_TOKEN / IMG_BASE 환경변수를 설정하세요.")
 
     # 1) 각 이미지를 캐러셀 자식 컨테이너로 생성
     children = []
@@ -162,7 +171,7 @@ def publish_deck(deck, dry_run=False):
 
 
 def run_queue(qpath):
-    """queue.json: [{deck, scheduled_at(ISO,+09:00), status:draft|approved|posted}]
+    """queue.json: [{deck, scheduled_at(ISO,+09:00), status:draft|approved|posted, account?:nuku|team91}]
        status==approved 이고 예약시각이 지난 항목만 발행 → posted로 기록."""
     data = json.load(open(qpath, encoding="utf-8"))
     now = datetime.now(KST)
@@ -176,7 +185,7 @@ def run_queue(qpath):
         if when > now:
             print(f"[대기] {item['deck']} — 예약 {item['scheduled_at']} 아직 안 됨")
             continue
-        mid = publish_deck(item["deck"])
+        mid = publish_deck(item["deck"], account=item.get("account", "nuku"))
         item["status"] = "posted"
         item["media_id"] = mid
         item["posted_at"] = now.isoformat()
@@ -192,11 +201,12 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--deck", help="발행할 덱 폴더 경로 (레포 루트 기준)")
     ap.add_argument("--queue", help="예약 큐 파일 경로 (queue.json)")
+    ap.add_argument("--account", default="nuku", help="발행 계정: nuku(기본) 또는 team91")
     ap.add_argument("--dry-run", action="store_true", help="실제 게시 없이 URL만 출력")
     a = ap.parse_args()
     if a.queue:
         run_queue(a.queue)
     elif a.deck:
-        publish_deck(a.deck.rstrip("/\\"), dry_run=a.dry_run)
+        publish_deck(a.deck.rstrip("/\\"), dry_run=a.dry_run, account=a.account)
     else:
         ap.error("--deck 또는 --queue 중 하나가 필요합니다.")

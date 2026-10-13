@@ -2,6 +2,7 @@ name: NUKU 카드뉴스 발행
 
 # 1) 수동 발행(검수 후 승인): Actions 탭 → 이 워크플로 → Run workflow → 덱 폴더명 입력
 # 2) 자동 예약 발행: 아래 schedule 크론이 queue.json의 'approved'+예약시각 지난 덱을 게시
+#    (큐 항목에 "account": "team91"이 있으면 팀91 계정으로, 없으면 누쿠로)
 on:
   workflow_dispatch:
     inputs:
@@ -9,6 +10,12 @@ on:
         description: "발행할 덱 폴더명 (예: 02_계약전_물어야할7가지)"
         required: true
         type: string
+      account:
+        description: "발행 계정 (nuku=@nuku.mag / team91=@team91.kr)"
+        required: false
+        default: nuku
+        type: choice
+        options: [nuku, team91]
   schedule:
     # UTC 기준. 00:00 UTC = 09:00 KST. 월·화·수·목·금 오전 9시(KST)에 큐 확인.
     - cron: "0 0 * * 1-5"
@@ -35,7 +42,9 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IMG_BASE: ${{ secrets.IMG_BASE }}
-        run: python publish.py --deck "${{ github.event.inputs.deck }}"
+          TEAM91_IG_USER_ID: ${{ secrets.TEAM91_IG_USER_ID }}
+          TEAM91_IG_ACCESS_TOKEN: ${{ secrets.TEAM91_IG_ACCESS_TOKEN }}
+        run: python publish.py --deck "${{ github.event.inputs.deck }}" --account "${{ github.event.inputs.account || 'nuku' }}"
 
       # 예약 트리거 → 큐 처리
       - name: 예약 큐 발행
@@ -44,6 +53,8 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IMG_BASE: ${{ secrets.IMG_BASE }}
+          TEAM91_IG_USER_ID: ${{ secrets.TEAM91_IG_USER_ID }}
+          TEAM91_IG_ACCESS_TOKEN: ${{ secrets.TEAM91_IG_ACCESS_TOKEN }}
         run: python publish.py --queue queue.json
 
       # 큐 상태 변화가 있으면 커밋
