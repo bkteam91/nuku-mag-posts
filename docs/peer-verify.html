@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="format-detection" content="telephone=no"><title>동료인증, 받으면 뭐가 달라지나 · NUKU</title><meta property="og:type" content="article"><meta property="og:site_name" content="NUKU · @nuku.mag"><meta property="og:title" content="동료인증, 받으면 뭐가 달라지나"><meta property="og:description" content="「그 작품 진짜 했어요?」에 같이 일한 동료 3명이 대신 답해 주는 기능이에요. 동료가 링크에서 한 번씩 눌러 주면 내 참여 작품이 제작사와 다른 사람에게도 보여요."><meta property="og:image" content="https://bkteam91.github.io/nuku-mag-posts/docs/og/peer-verify.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="동료인증, 받으면 뭐가 달라지나"><meta name="twitter:description" content="「그 작품 진짜 했어요?」에 같이 일한 동료 3명이 대신 답해 주는 기능이에요. 동료가 링크에서 한 번씩 눌러 주면 내 참여 작품이 제작사와 다른 사람에게도 보여요."><meta name="twitter:image" content="https://bkteam91.github.io/nuku-mag-posts/docs/og/peer-verify.png"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--accent:#0273FF;--ink:#16181D;--soft:#3D424C;--muted:#8A909C;
+  --line:#E8EBF0;--card:#F5F7FB;--bg:#FFFFFF;}
+html{-webkit-text-size-adjust:100%;}
+body{font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#EEF1F6;color:var(--ink);line-height:1.62;word-break:keep-all;
+  -webkit-font-smoothing:antialiased;}
+.wrap{max-width:560px;margin:0 auto;background:var(--bg);min-height:100vh;
+  box-shadow:0 0 40px rgba(0,0,0,.06);}
+.bar{display:flex;align-items:center;gap:9px;padding:18px 24px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);z-index:5;}
+.bar .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);}
+.bar .h{font-size:15px;font-weight:800;letter-spacing:-.01em;}
+.bar .tag{margin-left:auto;font-size:12px;font-weight:700;color:var(--muted);}
+.hero{padding:34px 24px 26px;}
+.kicker{display:inline-block;font-size:13px;font-weight:800;color:var(--accent);
+  background:rgba(2,115,255,.09);padding:6px 13px;border-radius:999px;letter-spacing:.01em;}
+h1{font-size:31px;font-weight:800;line-height:1.32;letter-spacing:-.03em;margin:18px 0 12px;}
+.sub{font-size:17px;color:var(--soft);font-weight:500;line-height:1.6;}
+.tldr{margin:8px 24px 12px;background:var(--card);border:1px solid var(--line);
+  border-radius:18px;padding:22px 22px;}
+.tldr .t{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.03em;margin-bottom:13px;}
+.tldr ul{list-style:none;}
+.tldr li{position:relative;padding-left:24px;font-size:16px;font-weight:600;color:var(--ink);
+  line-height:1.55;margin-bottom:11px;}
+.tldr li:last-child{margin-bottom:0;}
+.tldr li:before{content:'✓';position:absolute;left:0;top:0;color:var(--accent);font-weight:800;}
+section{padding:22px 24px;border-top:1px solid var(--line);}
+section h2{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.4;margin-bottom:12px;}
+section p{font-size:16.5px;color:var(--soft);line-height:1.66;margin-bottom:12px;}
+section p:last-child{margin-bottom:0;}
+b{color:var(--ink);font-weight:800;}
+em{font-style:normal;color:var(--accent);font-weight:700;}
+u{text-decoration:none;background:linear-gradient(transparent 60%,rgba(2,115,255,.18) 0);}
+.list{list-style:none;margin:6px 0 4px;}
+.list li{position:relative;padding-left:22px;font-size:16px;color:var(--soft);line-height:1.6;margin-bottom:10px;}
+.list li:before{content:'';position:absolute;left:4px;top:11px;width:6px;height:6px;
+  border-radius:50%;background:var(--accent);}
+.steps{counter-reset:s;margin:8px 0 2px;}
+.step{position:relative;padding-left:50px;margin-bottom:20px;}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+  width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;}
+.step .sh{font-size:17px;font-weight:800;line-height:1.4;padding-top:4px;}
+.step .sd{font-size:15px;color:var(--muted);line-height:1.55;margin-top:4px;}
+.callout{background:rgba(2,115,255,.07);border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;padding:16px 18px;font-size:16px;font-weight:700;
+  color:var(--ink);line-height:1.55;margin:6px 0;}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 4px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px;}
+th{background:var(--accent);color:#fff;font-weight:800;padding:12px 13px;text-align:left;}
+td{padding:12px 13px;border-top:1px solid var(--line);color:var(--soft);
+  line-height:1.5;vertical-align:top;}
+tr td:first-child{font-weight:800;color:var(--ink);}
+td em{color:var(--accent);font-weight:800;}
+.chk{list-style:none;margin:6px 0;}
+.chk li{position:relative;padding-left:34px;font-size:16px;color:var(--ink);font-weight:600;
+  line-height:1.5;margin-bottom:14px;}
+.chk li:before{content:'';position:absolute;left:0;top:0;width:23px;height:23px;
+  border:2.5px solid var(--accent);border-radius:7px;}
+.contacts{display:flex;flex-direction:column;gap:10px;margin-top:6px;}
+.contact{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:15px 17px;text-decoration:none;color:inherit;}
+.contact .cn{font-size:15.5px;font-weight:800;}
+.contact .cd{font-size:15px;color:var(--accent);font-weight:700;margin-top:3px;}
+.disc{margin:0 24px;padding:18px 0 4px;font-size:13px;color:var(--muted);line-height:1.6;
+  border-top:1px dashed var(--line);}
+.disc b{color:var(--soft);}
+.sources{padding:18px 24px;}
+.sources .t{font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px;letter-spacing:.03em;}
+.sources a{display:block;font-size:13px;color:var(--muted);text-decoration:none;
+  line-height:1.5;margin-bottom:7px;word-break:break-all;}
+.sources a:before{content:'↗ ';color:var(--accent);}
+.cta{margin:18px 20px 8px;background:linear-gradient(135deg,#0273FF,#015FE0);border-radius:22px;
+  padding:30px 26px;text-align:center;color:#fff;}
+.cta .ct{font-size:19px;font-weight:800;line-height:1.45;letter-spacing:-.02em;}
+.cta .cs{font-size:14.5px;color:rgba(255,255,255,.85);margin-top:8px;line-height:1.5;font-weight:500;}
+.cta a{display:inline-block;margin-top:18px;background:#fff;color:var(--accent);
+  font-size:16px;font-weight:800;text-decoration:none;padding:14px 30px;border-radius:999px;}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;}
+.wrap{overflow-x:hidden;}
+.prompt .ptxt{word-break:break-all;}
+.prompt{margin:14px 0;border:1.5px solid var(--accent);border-radius:16px;overflow:hidden;background:#F4F8FF;}
+.prompt .ptop{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;
+  background:var(--accent);color:#fff;font-size:13px;font-weight:800;}
+.prompt button{border:0;background:#fff;color:var(--accent);font-weight:800;font-size:13px;
+  padding:6px 14px;border-radius:999px;cursor:pointer;}
+.prompt .ptxt{padding:14px 16px;font-size:15px;line-height:1.7;white-space:pre-wrap;color:var(--ink);}
+figure{margin:14px 0;}
+figure img{width:100%;border-radius:14px;border:1px solid var(--line);display:block;}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.5;}
+.foot{text-align:center;padding:22px 24px 40px;font-size:12.5px;color:var(--muted);}
+.foot .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);
+  margin-right:6px;vertical-align:middle;}
+</style></head><body><div class="wrap"><div class="bar"><span class="dot"></span><span class="h">NUKU</span><span class="tag">@nuku.mag · 자료실</span></div><div class="hero"><span class="kicker">nuku 사용법 #01</span><h1>동료인증, 받으면 뭐가 달라지나</h1><div class="sub">「그 작품 진짜 했어요?」에 같이 일한 동료 3명이 대신 답해 주는 기능이에요. 동료가 링크에서 한 번씩 눌러 주면 내 참여 작품이 제작사와 다른 사람에게도 보여요.</div></div><div class="tldr"><div class="t">한눈에</div><ul><li>제작사가 쓰는 「인재 찾기」 목록에 <b>동료인증 작품 수</b>가 떠요</li><li>프로필에 「경력 미인증」 대신 <b>인증 마크와 확인한 동료 수</b>가 붙어요</li><li>작품 페이지 참여자 목록에 <b>내 이름</b>이 보여요(확인 전엔 나만 보여요)</li><li>부탁받은 동료도 <b>자기 참여 작품이 같이</b> 등록돼요</li></ul></div><section><h2>받으면 달라지는 것 ① 제작사가 사람 찾을 때 보여요</h2><p>제작사가 쓰는 워크스페이스 「인재 찾기」 목록에서 이름 아래 「동료인증 작품 n」이 함께 떠요. 프로필을 공개한 사람만 이 목록에 나와요.</p><figure><img src="img/peer-verify/b3_talent.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면 · 제작사 인재 찾기(이름은 예시로 바꿨어요)</figcaption></figure></section><section><h2>받으면 달라지는 것 ② 「경력 미인증」 대신 마크가 붙어요</h2><p>확인 전 작품에는 「경력 미인증」이 붙어요. 동료인증을 받으면 그 자리에 확인한 동료 수가 붙어요.</p><figure><img src="img/peer-verify/b2_profile.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면 · 운영 사이트 프로필</figcaption></figure></section><section><h2>받으면 달라지는 것 ③ 작품 페이지에 내 이름이 보여요</h2><p>참여 작품을 등록해도 동료인증이나 관리자 인증 전에는 작품 페이지 참여자 목록에서 나에게만 보여요. 동료 3명이 확인하거나 관리자 인증을 받으면 다른 사람에게도 보여요.</p><figure><img src="img/peer-verify/b1_onlyme.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면 · 확인 전 작품 페이지</figcaption></figure></section><section><h2>하는 법 1. 참여 작품 등록하기</h2><p>nuku에서 작품을 검색하고 「이 작품에 참여했어요」로 내 역할을 등록해요. 찾는 작품이 없으면 직접 등록할 수 있어요. 영화는 KOBIS에서 찾아 바로 불러올 수도 있어요.</p></section><section><h2>하는 법 2. 「동료에게 부탁하기」 누르기</h2><p>마이페이지 > 참여 작품에서 확인받고 싶은 작품 아래에 있어요.</p><figure><img src="img/peer-verify/01_ask.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면 · 참여 작품 목록</figcaption></figure></section><section><h2>하는 법 3. 링크 만들기</h2><p>「링크로 인증 요청하기」를 누르면 그 작품 전용 링크가 만들어져요. 이미 nuku에 있는 동료라면 「동료 목록에서 고르기」로 바로 부탁할 수도 있어요.</p><figure><img src="img/peer-verify/02_link.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면</figcaption></figure></section><section><h2>하는 법 4. 동료에게 보내기</h2><p>「카카오톡으로 보내기」나 「링크 복사하기」로 보내요. 링크는 유효기간이 있어서, 지나면 다시 만들어야 해요.</p><figure><img src="img/peer-verify/03_send.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면</figcaption></figure></section><section><h2>하는 법 5. 동료는 한 번만 누르면 돼요</h2><p>링크를 연 동료는 그 작품에서 자기 역할을 고르고 「네, 함께 일했어요」를 누르면 끝이에요. 고른 역할로 <b>동료의 참여 작품도 함께 등록</b>되고, 나와 동료 양쪽에 확인한 동료가 1명씩 늘어요.</p><div class="callout">동료는 nuku에 가입만 하면 돼요. 작품을 따로 찾아 등록할 필요 없어요. 확인해 주는 동료도 자기 참여 기록이 하나 생겨요.</div><figure><img src="img/peer-verify/04_confirm.jpg" alt="" loading="lazy"><figcaption>실제 nuku 화면 · 동료가 받은 화면</figcaption></figure></section><section><h2>체크리스트</h2><ul class="chk"><li>참여 작품을 등록했나</li><li>확인받을 작품에서 링크를 만들었나</li><li>함께 일한 동료 3명에게 보냈나</li><li>링크 유효기간이 지나지 않았나</li></ul></section><div class="disc"><b>안내</b> · 화면은 2026년 11월 기준이에요. 메뉴 이름과 위치는 바뀔 수 있어요.</div><div class="cta"><div class="ct">내 참여 작품부터 등록해 보세요</div><a href="https://nuku.im/ko/works" target="_blank" rel="noopener">nuku에서 시작하기</a></div><div class="foot"><span class="dot"></span>NUKU · 영상 현장인을 위한 경력 플랫폼</div></div><script>function cp(b){var t=b.closest('.prompt').querySelector('.ptxt').innerText;var d=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)};if(navigator.clipboard){navigator.clipboard.writeText(t).then(d,function(){f(t);d()})}else{f(t);d()}function f(x){var a=document.createElement('textarea');a.value=x;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}}</script></body></html>
